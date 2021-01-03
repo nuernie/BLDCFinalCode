@@ -39,8 +39,9 @@ public:
     //Zähler und vergleichs Wert
     const uint16_t t1_load = 0;
     const uint16_t t1_comp = 31250;
-
-
+    
+    //Definiere error flag für den Led Blink Interrupt
+    volatile uint8_t  errorFlag = 0;
 
     
 
