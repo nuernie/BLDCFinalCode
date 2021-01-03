@@ -27,19 +27,7 @@ void setup() {
   if(DEBUG){
     Serial.begin(BAUDRATE); 
    }
-      //Reset Timer1 Control Register 
-  TCCR1A = 0;
-  //Setze Prescaler von 256
-  TCCR1B != (1<<CS12);
-  TCCR1B &= ~(1<<CS11);
-  TCCR1B &= ~(1<<CS10);
-  //Reset Timer1 and set compare value
-  TCNT1 = mc.t1_load;
-  OCR1A = mc.t1_comp;
-  //Enable Timer1 compare interrupt
-  TIMSK1 = (1<<OCIE1A);
-  //Enable global Interrupts
-  sei();
+
 
 
 }
