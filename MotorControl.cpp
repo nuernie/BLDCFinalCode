@@ -267,35 +267,12 @@
     //TODO Setze noch einen Interrupt Timer
     //Toggle Led für einen ErrorState
     Serial.println("Error is occured !");
-    errorFlag = 1;
-    
-    
-    
-    //PORTB |=(1<<5);
-    //delay(500);
-    //PORTB &= ~(1<<5);
-    //delay(500);
-  
-  }
-  /**
-   * Messe den HighSide Strom 
-   * Ausgegebene Spannung ist sehr niedrig
-   * benötigen große Ströme
-  **/
-  void MotorControl::measureCurrent(){
-      Serial.println(analogRead(V_IS_RC));
+    errorFlag = 1;  
+        
   }
 
-  /**
-   * Nur auf die HighSide Schalter wird eine PWM gegeben
-   * Setze PWM über analoges Poti
-   * Setze PWM auf 10khz = 0.1 ms
-   * Fahren hier mit Block PWM nicht mit Sinus PWM ist ausreichend
-  **/
-  void MotorControl::setHighSidePWM(uint8_t poti){
-    //Poti val 0 - 1023 
-    
-    PORTB ^= (1<<5);
-    delay(50);
+
+
+
+
   
-  }
