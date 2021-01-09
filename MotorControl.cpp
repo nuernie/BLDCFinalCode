@@ -148,9 +148,7 @@
           setErrorLED();
           break;
       }
-  
   }
-
 
 
   /**
@@ -169,11 +167,14 @@
   
       //Quh und Qvl müssen gesetzt werden
       //Quh 
-      PORTB |= (1<<3);
+       OCR2A = dtc; //PB3
+      //PORTB |= (1<<3);
       //Qvl 
-      PORTB &= ~(1<<2);
+        OCR1B = 0; //PB2
+      //PORTB &= ~(1<<2);
       //Qw ist inaktiv setze default auf low
-      PORTB &= ~(1<<1);
+       OCR1A = 0; //PB1
+      //PORTB &= ~(1<<1);
   }
 
   void MotorControl::step1(){
@@ -187,11 +188,14 @@
   
       //Quh und Qwl müssen gesetzt werden
       //Quh
-      PORTB |= (1<<3);
+        OCR2A = dtc; //PB3
+      //PORTB |= (1<<3);
       //Qv ist inaktiv setze default auf low
-      PORTB &= ~(1<<2);
+        OCR1B = 0; //PB2
+      //PORTB &= ~(1<<2);
       //Qwl
-      PORTB &= ~(1<<1);
+       OCR1A = 0; //PB1
+     // PORTB &= ~(1<<1);
   }
 
   void MotorControl::step2(){
@@ -204,11 +208,14 @@
       PORTD |= (1<<3);
   
       //Qu inaktiv setze default auf low
-      PORTB &= ~(1<<3);
+       OCR2A = 0; //PB3
+      //PORTB &= ~(1<<3);
       //Qvh
-      PORTB |= (1<<2);
+        OCR1B = dtc; //PB2
+      //PORTB |= (1<<2);
       //Qwl
-      PORTB &= ~(1<<1);
+        OCR1A = 0; //PB1
+      //PORTB &= ~(1<<1);
   }
   void MotorControl::step3(){
       //Die Passenden Fets aktiv schalten
@@ -220,11 +227,14 @@
       PORTD &= ~(1<<3);
   
       //Qul
-      PORTB &= ~(1<<3);
+        OCR2A = 0; //PB3
+      //PORTB &= ~(1<<3);
       //Qvh
-      PORTB |= (1<<2);
+        OCR1B = dtc; //PB2
+      //PORTB |= (1<<2);
       //Qw inaktiv setze default auf low
-      PORTB &= ~(1<<1);
+        OCR1A = 0; //PB1
+      //PORTB &= ~(1<<1);
   
   }
   void MotorControl::step4(){
@@ -237,11 +247,14 @@
       PORTD |= (1<<3);
   
       //Qul
-      PORTB &= ~(1<<3);
+      OCR2A = 0; //PB3
+      //PORTB &= ~(1<<3);
       //Qv inaktiv setze default auf low
-      PORTB &= ~(1<<2);
+        OCR1B = 0; //PB2
+      //PORTB &= ~(1<<2);
       //Qwh
-      PORTB |= (1<<1);
+        OCR1A = dtc; //PB1
+      //PORTB |= (1<<1);
   }
   void MotorControl::step5(){
       //Die Passenden Fets aktiv schalten
@@ -253,11 +266,14 @@
       PORTD |= (1<<3);
   
       //Qu inaktiv setze default auf low
-      PORTB &= ~(1<<3);
+        OCR2A = 0; //PB3
+      //PORTB &= ~(1<<3);
       //Qvl
-      PORTB &= ~(1<<2);
+        OCR1B = 0; //PB2
+      //PORTB &= ~(1<<2);
       //Qwh
-      PORTB |= (1<<1);
+        OCR1A = dtc; //PB1
+      //PORTB |= (1<<1);
   }
 
   /**

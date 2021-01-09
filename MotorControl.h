@@ -23,7 +23,8 @@ public:
     void step4();
     void step5();
     void setErrorLED();
-  
+    void setPwmPin9_10();
+    void setPwmPin11();
     
 
     //Setze die analogen Eingänge
@@ -36,9 +37,7 @@ public:
 
     //Setze Timer konstanten
     //Zähler und vergleichs Wert
-    const uint16_t t1_freq = 200;
-    uint16_t t1_comp       = 10;
-   
+    uint16_t dtc = 0;
     
     //Definiere error flag für den Led Blink Interrupt
     volatile uint8_t  errorFlag = 0;
