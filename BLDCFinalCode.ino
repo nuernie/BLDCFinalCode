@@ -9,7 +9,7 @@
    * weiß w
    * blau u
   **/
-  
+
   #include "MotorControl.h"
   #define DEBUG    1        //Zum Debugen 1 ansonsten 0 eingeben
   #define BAUDRATE  115200  
@@ -30,6 +30,7 @@
 
   setPwmPin9_10();
   setPwmPin11();
+  mc.dtc = 0;
 
     
     
@@ -37,25 +38,18 @@
 
 
   void loop() {
-  
-    if (Serial.available() > 0)
-  {
-    uint8_t in = Serial.read();
-    if(in == '+') mc.dtc += 10;          // Adapt the speed with keyboard input in the serial monitor
-    if(in == '-') mc.dtc -= 10;
-    Serial.println(mc.dtc);
-  }
 
-
-    //Lese Poti Werte aus
-   // Serial.println(analogRead(A0));
-   // mc.dtc = map(analogRead(A0),0,989,0,255);
-    //Kommutiere
-    
-    mc.commutate();
+   //Lese Poti Werte aus
    
-     
+   mc.dtc = map(analogRead(A0),0,1023,0,255);
+   Serial.println(mc.dtc);
+    
+   //Kommutiere
+   mc.commutate();
+       
   }
+
+  
 
  void setPwmPin9_10(){
   // Reset Timer Register
@@ -105,9 +99,4 @@
   
 
 //TODO:
-//PWM hinzufügen
-//PORT Statements weg nehmen einfach nur INH pins bestimmen lassen
-//Welche high side mit pwm beaufschlagt wird
-//Low Side weiterhin fest ohne pwm durchschalten
-//GND konst durchschalten lassen
-//Einfach PWM auf 0% stellen um const durch zu schalten
+//Error Flag hier sanft runter fahr Rampe schalten

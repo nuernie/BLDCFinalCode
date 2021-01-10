@@ -37,7 +37,7 @@ public:
 
     //Setze Timer konstanten
     //Zähler und vergleichs Wert
-    uint16_t dtc = 0;
+    uint16_t dtc;
     
     //Definiere error flag für den Led Blink Interrupt
     volatile uint8_t  errorFlag = 0;

@@ -284,6 +284,11 @@
     //Toggle Led für einen ErrorState
     Serial.println("Error is occured !");
     errorFlag = 1;  
+  //  PORTB |= (1<<5);
+  //  delay(500);
+  //  PORTB &= ~(1<<5);
+  //  delay(500);
+    
         
   }
 
